@@ -50,15 +50,15 @@ public class MyLinkedList {
      start.setPrev(newNode);
      start = newNode;
    } else if (index == size) {
-     newNode.setPrev(start);
+     newNode.setPrev(end);
      newNode.setNext(null);
      end.setNext(newNode);
      end = newNode;
    } else {
      newNode.setNext(findIndex(index));
-     newNode.setPrev(findIndex(index).getPrev());
-     findIndex(index - 1).setNext(newNode);
+     newNode.setPrev(findIndex(index - 1));
      findIndex(index).setPrev(newNode);
+     findIndex(index - 1).setNext(newNode);
    }
    size++;
  }
@@ -96,6 +96,4 @@ public class MyLinkedList {
     }
    return answer.substring(0, answer.length() - 2) + "]";
  }
-
- //Any helper method that returns a Node object MUST BE PRIVATE!
 }

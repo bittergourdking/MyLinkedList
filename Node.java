@@ -19,18 +19,14 @@ public class Node {
   public Node getNext() {
     return next;
   }
-  public Node setNext(Node value) {
-    Node middle = next;
-    next = value;
-    return middle;
+  public void setNext(Node n) {
+    next = n;
   }
 
   public Node getPrev() {
     return prev;
   }
-  public Node setPrev(Node value) {
-    Node middle = prev;
-    prev = value;
-    return middle;
+  public void setPrev(Node n) {
+    prev = n;
   }
 }
