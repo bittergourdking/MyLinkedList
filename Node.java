@@ -1,7 +1,7 @@
 public class Node {
   //private variables
   private String data;
-  private Node next,prev;
+  private Node next, prev;
   //constructor
   public Node(String value) {
     data = value;
@@ -31,6 +31,6 @@ public class Node {
   public Node setPrev(Node value) {
     Node middle = prev;
     prev = value;
-    return next;
+    return middle;
   }
 }
