@@ -68,7 +68,9 @@ public class MyLinkedList {
      throw new IndexOutOfBoundsException("Invalid index!");
    }
    String answer = findIndex(index).getData();
-   if (index == 0) {
+   if (size == 1) {
+     start = end = null;
+   } else if (index == 0) {
      start = findIndex(1);
      start.setPrev(null);
    } else if (index == size) {
@@ -78,6 +80,7 @@ public class MyLinkedList {
      findIndex(index + 1).setPrev(findIndex(index - 1));
      findIndex(index - 1).setNext(findIndex(index + 1));
    }
+   size--;
    return answer;
  }
 
