@@ -63,6 +63,43 @@ public class MyLinkedList {
    size++;
  }
 
+ public String remove(int index) {
+   if (index < 0 || index > size || size == 0) {
+     throw new IndexOutOfBoundsException("Invalid index!");
+   }
+   String answer = findIndex(index).getData();
+   if (index == 0) {
+     start = findIndex(1);
+     start.setPrev(null);
+   } else if (index == size) {
+     end = findIndex(index - 1);
+     end.setNext(null);
+   } else {
+     findIndex(index + 1).setPrev(findIndex(index - 1));
+     findIndex(index - 1).setNext(findIndex(index + 1));
+   }
+   return answer;
+ }
+
+ public void extend(MyLinkedList other) {
+   if (other.size() == 0) {
+     //nothing
+   } else if (size == 0) {
+     start = other.start;
+     end = other.end;
+     size = other.size;
+     other.start = other.end = null;
+     other.size = 0;
+   } else {
+     end.setNext(other.start);
+     other.start.setPrev(end);
+     end = other.end;
+     size = size + other.size;
+     other.start = end = null;
+     other.size = 0;
+   }
+ }
+
  public String get(int index) {
    if (index < 0 || index > size) {
      throw new IndexOutOfBoundsException("Invalid index!");
@@ -78,6 +115,9 @@ public class MyLinkedList {
  }
 
  public String toString() {
+   if (size == 0) {
+     return "[]";
+   }
    Node current = start;
    String answer = "[";
    while (current != null) {
@@ -88,6 +128,9 @@ public class MyLinkedList {
  }
 
  public String toStringReversed() {
+   if (size == 0) {
+     return "[]";
+   }
    Node current = end;
    String answer = "[";
    while (current != null) {
