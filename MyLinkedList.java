@@ -64,7 +64,7 @@ public class MyLinkedList {
  }
 
  public String remove(int index) {
-   if (index < 0 || index > size || size == 0) {
+   if (index < 0 || index >= size || size == 0) {
      throw new IndexOutOfBoundsException("Invalid index!");
    }
    String answer = findIndex(index).getData();
@@ -104,14 +104,14 @@ public class MyLinkedList {
  }
 
  public String get(int index) {
-   if (index < 0 || index > size) {
+   if (index < 0 || index >= size) {
      throw new IndexOutOfBoundsException("Invalid index!");
    }
    return findIndex(index).getData();
  }
 
  public String set(int index, String value) {
-   if (index < 0 || index > size) {
+   if (index < 0 || index >= size) {
      throw new IndexOutOfBoundsException("Invalid index!");
    }
    return findIndex(index).setData(value);
