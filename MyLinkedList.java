@@ -73,7 +73,7 @@ public class MyLinkedList {
    } else if (index == 0) {
      start = findIndex(1);
      start.setPrev(null);
-   } else if (index == size) {
+   } else if (index == size - 1) {
      end = findIndex(index - 1);
      end.setNext(null);
    } else {
